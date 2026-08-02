@@ -251,7 +251,7 @@ le nombre de fois où le téléphone change de mains.</p>
 <div class="dit">
   <h3>La couverture</h3>
   <p>Titre, rose des vents déviée de 23°, adresse de volume, et une frise de squelettes musiciens qui défile en boucle. C’est l’application à son meilleur.</p>
-  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>La frise montre du bruit sur sa droite : une gravure 1-bit qui défile est rééchantillonnée sur les écrans de densité fractionnaire. Mesuré, cause arithmétique, non résolu.</p></div>
+  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>La frise n’a que <b>deux</b> couleurs dans son fichier — os ou vide, rien entre les deux. À l’écran, elle en affiche <b>1 259</b>, dont un quart hors palette : des gris. La cause est une division qui ne tombe pas juste. Le dessin fait 216 pixels et doit tenir dans un cadre de 72 points : sur un écran de densité ×3, cela fait exactement 216 pixels, un pour un ; sur cet appareil-ci, de densité ×2,625, cela fait 189. Android doit donc faire entrer 216 pixels dans 189, et il n’y arrive qu’en mélangeant les deux encres — le mélange, ce sont les gris. Ce n’est ni l’animation (arrêtée, c’est pareil) ni le grain du papier (un fond nu de la même page reste à 2,6 %). Les planches y échappent en prenant leur taille dans les pixels du fichier plutôt que dans une taille voulue ; la frise n’a pas encore fait ce troc. Mesuré, compris, non résolu.</p></div>
 </div>
 </section>
 <section class="fiche">
@@ -348,7 +348,7 @@ le nombre de fois où le téléphone change de mains.</p>
 <div class="dit">
   <h3>La révélation</h3>
   <p>Le lieu, le trajet en quatre tracés SVG — aucun moteur de carte, aucune tuile — et la rangée « QUI AVAIT DEVINÉ ? » qui distribue le pot.</p>
-  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>Cinq actions dans la bande du bas, dont une seule sert dans quatre-vingt-quinze pour cent des cas.</p></div>
+  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>Trois actions dans la bande du bas — <em>Nous y sommes</em>, <em>C’est fermé</em>, <em>Rentrer</em> — plus le lien de l’itinéraire sur la carte et les quatre jetons du devin. Huit cibles, dont une seule sert presque toujours, sur une page qu’on lit debout avant d’entrer.</p></div>
 </div>
 </section>
 <section class="fiche">
@@ -444,7 +444,7 @@ le nombre de fois où le téléphone change de mains.</p>
 <div class="dit">
   <h3>Les verres</h3>
   <p>Un tap par verre. Le minimum d’un verre par personne est une condition de validation, jamais un objectif : aucun total, aucune série, aucun badge.</p>
-  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>La ligne entière est le « + » ; le « − » est la petite zone à droite. Rien ne le dit.</p></div>
+  <div class="cloche"><span class="etiquette">CE QUI CLOCHE</span><p>La ligne entière est le « + » ; le « − » est la cellule de 56 pt à droite, et il n’existe pas tant que le compte est à zéro — délibérément, pour ne pas laisser un cadre vide qui se lirait comme un bouton cassé. Rien à l’écran ne dit ni l’un ni l’autre.</p></div>
 </div>
 </section>
 <section class="fiche">
@@ -838,7 +838,7 @@ commenter les quarante écrans — et si vous voyez ailleurs quelque chose que j
 <li><div><h3>La reprise perd l’identité de l’application</h3><p style="margin-top:8px">C’est l’écran qu’on voit le plus souvent en soirée — au lancement, tant qu’une dérive tourne — et il n’a ni emblème ni frise : le bloc de reprise prend la place. Six boutons identiques, aucune image. Comparez-le à la couverture. Un recadrage de l’emblème réduit à son anneau existe. <b>C’est la question la plus importante du dossier.</b></p></div></li>
 <li><div><h3>Le registre déborde dès qu’il porte une bande</h3><p style="margin-top:8px">Sans défi ni duel, les quatre portes tiennent. Avec, le contenu passe sous le pli — et les deux boutons qui tranchent le duel se retrouvent cachés derrière une bande fixe qui ressemble à la fin de l’écran. Faut-il replier, hiérarchiser, ou séparer encore ?</p></div></li>
 <li><div><h3>Les réglages n’ont aucune hiérarchie</h3><p style="margin-top:8px">Cinq sections au même poids, et un <em>TOUT EFFACER</em> irréversible qui a l’aspect d’un lien de navigation. À restructurer <b>sans</b> seconde taille de texte, <b>sans</b> seconde graisse, <b>sans</b> couleur.</p></div></li>
-<li><div><h3>La révélation a cinq actions de même poids</h3><p style="margin-top:8px">Une seule sert dans la quasi-totalité des cas : NOUS Y SOMMES. Les quatre autres — l’itinéraire, c’est fermé, rentrer, la rangée du devin — encombrent un écran qu’on lit debout, sur un trottoir.</p></div></li>
+<li><div><h3>La révélation éparpille huit cibles de même poids</h3><p style="margin-top:8px">Une seule sert dans la quasi-totalité des cas : NOUS Y SOMMES. Autour d’elle, sept autres cibles se partagent la page — le lien de l’itinéraire sur la carte, les quatre jetons du devin, C’EST FERMÉ et RENTRER — sur un écran qu’on lit debout, sur un trottoir, avant d’entrer dans le bar.</p></div></li>
 <li><div><h3>La tranche de l’étagère ne porte pas la dédicace</h3><p style="margin-top:8px">Le vainqueur écrit une ligne qui « restera sur la tranche » — mais la tranche a un budget mesuré de trente-sept caractères, déjà pris par la date, la ville, le nombre de sections et le palier. Où va cette ligne ? C’est une vraie question de composition, pas un oubli d’implémentation.</p></div></li>
 </ol>
 <h2 class="bande" id="kit"><span class="chiffre">XI</span>Le kit</h2>
