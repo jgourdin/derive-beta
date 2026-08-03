@@ -230,7 +230,7 @@ fermeture. Le tableau dit ce qui se répète et ce qui n’arrive qu’une fois.
 <div class="defile"><table>
 <thead><tr><th>Moment</th><th>Écrans</th><th class="n">Fréquence</th></tr></thead>
 <tbody>
-<tr><td>L’ouverture</td><td>portail d’âge, couverture, style, prénoms</td>
+<tr><td>L’ouverture</td><td>portail d’âge, couverture, vœu, prénoms</td>
     <td class="n">1 fois</td></tr>
 <tr><td>La section</td><td>question du crâne, trois ou quatre réponses</td>
     <td class="n">par étape</td></tr>
@@ -249,6 +249,9 @@ fermeture. Le tableau dit ce qui se répète et ce qui n’arrive qu’une fois.
 <p>Objectif tenu : <b>une étape se remplit en moins de 90 secondes et une seule
 passation</b>. C’est la contrainte qui décide de tout le reste — pas le nombre de taps, mais
 le nombre de fois où le téléphone change de mains.</p>
+<p>Une seule exception, et elle se demande : le vœu <b>qu’on parle</b> fait deux tours de
+table au lieu d’un. L’étape s’allonge d’autant, et c’est assumé — le crâne l’annonce avant
+qu’on choisisse, et aucun autre vœu n’y touche.</p>
 </div>
 <h2 class="bande" id="mI"><span class="chiffre">III</span>Avant la soirée</h2>
 <input type="checkbox" id="l01-portail-d-age" class="loupe" aria-label="Agrandir Le portail d’âge">
@@ -984,7 +987,12 @@ autre chose. La règle vaut pour l’application, pas pour ce qui parle d’elle
 <section class="regle col">
 <h3>Trois bandes, toujours dans le même ordre</h3>
 <p class="valeur">Titre en haut · contenu au milieu · actions en bas</p>
-<p>Seul le contenu défile. Un bouton posé dans le flux change de place à chaque élément ajouté, et c’est ce qu’un pouce ne pardonne pas. <b>Le retour est la dernière action de la bande du bas</b> — jamais un chevron en haut à gauche : dans le noir, à une main, le pouce atteint le bas de l’écran et pas le coin opposé.</p>
+<p>Seul le contenu défile. Un bouton posé dans le flux change de place à chaque élément ajouté, et c’est ce qu’un pouce ne pardonne pas.</p>
+</section>
+<section class="regle col">
+<h3>On sort par le haut à droite</h3>
+<p class="valeur">Le ‹ à droite du titre, sans cadre</p>
+<p>Une cible de 56 pt sur la ligne du bandeau, portant le guillemet simple en 33 pt. <b>Renversé en v4.35</b>, sur des retours de joueurs : jusque-là le retour était la dernière action de la bande du bas, au motif que dans le noir, à une main, le pouce atteint le bas et pas le coin opposé. L’argument reste vrai pour ce qu’on tape <em>souvent</em> — valider, suivant, la photo — mais le retour se tape une fois par écran au plus. Il payait une place permanente pour un geste rare, et un bouton filet parmi des boutons filet ne se lisait pas comme une sortie. <b>La migration est en cours</b> : l’écran du vœu porte la forme nouvelle, les autres suivront.</p>
 </section>
 <section class="regle col">
 <h3>Les planches s’affichent à leur taille native</h3>
