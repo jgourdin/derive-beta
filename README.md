@@ -11,7 +11,7 @@ qui savent regarder une interface.
 | | |
 |---|---|
 | `index.html` | le dossier, autonome — fonte, captures et kit sont dedans. Il s’ouvre aussi hors ligne, en double-cliquant. |
-| `parcours/` | les 58 captures en taille réelle (1080 × 2164), prises sur appareil le 2 août 2026, dans l’ordre du parcours. |
+| `parcours/` | les 70 captures en taille réelle (1080 × 2164), prises sur appareil les 2 et 4 août 2026, dans l’ordre du parcours. Le dossier n’en montre pas la totalité : quelques-unes sont des états voisins qu’il n’a pas retenus. |
 
 ## Ce qu’est Dérive
 
