@@ -5,14 +5,14 @@ le parcours de Dérive, écran par écran, donné à relire à quelques personne
 qui savent regarder une interface.
 
 → **[Ouvrir le dossier](https://jgourdin.github.io/derive-beta/)**
-→ **[Le pari et les osselets](https://jgourdin.github.io/derive-beta/paris.html)** — note de mécanique
+→ **[Le pari — spike produit](https://jgourdin.github.io/derive-beta/paris.html)** — cinq pistes, une décision à prendre
 
 ## Ce qu’il y a dedans
 
 | | |
 |---|---|
 | `index.html` | le dossier, autonome — fonte, captures et kit sont dedans. Il s’ouvre aussi hors ligne, en double-cliquant. |
-| `paris.html` | une note à part : **comment marche le pari**, et à quoi sert de gagner. Le pari se joue en deux temps sur deux écrans, ce qui ne se devine pas en regardant l’un des deux — d’où les schémas. Autonome elle aussi. |
+| `paris.html` | un **spike produit** sur le pari. Celui qui existe ne marche pas — on y devine un numéro de section tiré au sort, et c’est la table elle-même qui déclare qui avait gagné. La note fait le diagnostic, puis pose **cinq pistes** avec ce que chacune demande et ce qu’elle risque. Rien n’est implémenté : c’est un document de décision. Autonome comme le dossier. |
 | `parcours/` | les 70 captures en taille réelle (1080 × 2164), prises sur appareil les 2 et 4 août 2026, dans l’ordre du parcours. Le dossier n’en montre pas la totalité : quelques-unes sont des états voisins qu’il n’a pas retenus. |
 
 ## Ce qu’est Dérive

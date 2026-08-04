@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dérive — le pari et les osselets</title>
+<title>Dérive — le pari, spike produit</title>
 <style>
 @font-face {
   font-family: "Departure Mono";
@@ -108,6 +108,37 @@ td:first-child { white-space:nowrap; }
 .issue { border:1px solid var(--border); padding:12px; font-size:14px; }
 .issue .cond { font-size:11px; letter-spacing:.08em; color:#8a8578; display:block; }
 
+/* — Les options du spike — une fiche par piste — */
+.option { border:1px solid var(--border); padding:20px; margin:24px 0; }
+.option > h3 { margin:0 0 4px; font-size:22px; letter-spacing:.02em; }
+.option .rang { font-size:11px; letter-spacing:.1em; color:#8a8578; display:block; }
+.option .verdict-ligne {
+  margin:16px 0 0; padding-top:12px; border-top:1px solid var(--rule);
+  font-size:14px;
+}
+.champs { display:grid; gap:0; margin:16px 0 0; }
+.champ { display:grid; gap:4px; padding:10px 0; border-top:1px solid var(--grain); }
+@media (min-width:700px) {
+  .champ { grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:baseline; }
+}
+.champ .cle { font-size:11px; letter-spacing:.08em; color:#8a8578; }
+.champ .val { font-size:14px; }
+
+/* La matrice : une table de comparaison, filets seuls. */
+.matrice { overflow-x:auto; margin:24px 0; }
+.matrice table { min-width:600px; margin:0; }
+.matrice td, .matrice th { padding:10px 14px 10px 0; vertical-align:top; }
+/*
+  Le nom de piste ne se coupe **pas**, et il annule la règle mobile plus bas : il est inversé,
+  donc `box-decoration-break:clone` en fait un aplat par fragment — « 1 · le livre du crâne »
+  coupé en trois se lisait comme trois étiquettes. La matrice défile horizontalement dans son
+  propre cadre plutôt que de casser ses libellés, ce qui est le seul endroit de la page où un
+  débordement latéral est admis.
+*/
+.matrice td:first-child { white-space:nowrap; }
+.oui, .non { font-size:15px; }
+.matrice .note-cell { font-size:13px; color:#c9c4b6; }
+
 footer {
   margin-top:64px; padding-top:16px; border-top:1px solid var(--rule);
   font-size:11px; letter-spacing:.06em; color:#8a8578;
@@ -116,140 +147,139 @@ footer {
 </head>
 <body>
 <main>
-<h1>LE PARI ET LES OSSELETS</h1>
-<p class="chapeau">NOTE DE MÉCANIQUE · 4 AOÛT 2026 · CE QUI EST CONSTRUIT, ET CE QUI RESTE À TRANCHER</p>
+<h1>LE PARI — SPIKE PRODUIT</h1>
+<p class="chapeau">DÉRIVE · 4 AOÛT 2026 · CINQ PISTES, UNE DÉCISION À PRENDRE</p>
 
-<p>Un joueur qui regarde l’écran du rideau voit <b>LA TABLE PARIE</b> et deux prénoms
-encadrés, sans savoir ce qu’un tap engage. Cette note répond à ça — et à la question
-qui vient juste après : <em>à quoi ça sert de gagner ?</em></p>
+<p>Le pari du rideau est jugé <b>gadget, mal expliqué et mal exécuté</b>. Cette note fait le
+diagnostic, puis pose <em>cinq pistes</em> avec ce que chacune demande et ce qu’elle risque.
+Rien n’est implémenté : c’est un document de décision.</p>
 
-<h2>Le pari se joue en deux temps, sur deux écrans</h2>
+<h2>1 · Ce qui existe aujourd’hui</h2>
 
-<p>C’est la source de confusion, alors elle passe en premier. Le pari n’est pas <em>un</em>
-écran : c’est une mise posée <b>avant</b> de savoir, et un règlement <b>après</b>. Entre les
-deux, la révélation du lieu.</p>
+<p>Le pari se joue en deux temps, sur deux écrans — et c’est déjà une part du problème :
+personne ne voit les deux moitiés en même temps.</p>
 
 
 <div class="schema">
   <p class="legende">LE PARI, DE GAUCHE À DROITE — DEUX ÉCRANS, UNE SEULE MÉCANIQUE</p>
   <div class="temps">
-    <div class="acte"><span class="titre">1 · LE RIDEAU — ON NE SAIT PAS</span><ul><li>la table parie à voix haute</li><li><b>LA TABLE PARIE</b> — un jeton par joueur</li><li>un tap monte la mise de 1, jusqu’à 3</li><li>les mises <em>quittent les bourses</em> : le pot existe avant qu’on sache</li></ul></div>
+    <div class="acte"><span class="titre">1 · LE RIDEAU — ON NE SAIT PAS</span><ul><li>la table parie à voix haute</li><li><b>LA TABLE PARIE</b> — un jeton par joueur</li><li>un tap monte la mise de 1, jusqu’à 3</li><li>les mises <em>quittent les bourses</em> : le pot existe avant qu’on sache</li></ul></div>
     <div class="acte"><span class="titre">2 · LE TIRAGE — ~500 ms</span><ul><li>deux faux numéros, puis le vrai</li><li>ça se regarde, ça ne se tape pas</li></ul></div>
-    <div class="acte"><span class="titre">3 · L’AFFICHE — ON SAIT</span><ul><li><b>QUI AVAIT DEVINÉ ?</b></li><li><em>personne</em> · un jeton par joueur</li><li>un nom → le pot entier au devineur</li><li>« personne » → le pot au crâne</li></ul></div>
+    <div class="acte"><span class="titre">3 · L’AFFICHE — ON SAIT</span><ul><li><b>QUI AVAIT DEVINÉ ?</b></li><li><em>personne</em> · un jeton par joueur</li><li>un nom → le pot entier au devineur</li><li>« personne » → le pot au crâne</li></ul></div>
   </div>
   <div class="fleche horiz">↓</div>
 </div>
 
-<h3>CE QU’UN TAP FAIT VRAIMENT</h3>
+<p>Un tap sur un jeton du guéridon monte la mise d’un osselet, jusqu’à trois ou jusqu’au fond
+de la bourse ; au sommet, le tap suivant retire tout. Les osselets quittent la bourse
+<b>avant</b> le tirage. Sur l’affiche, la rangée « QUI AVAIT DEVINÉ&nbsp;? » donne le pot
+entier à un nom, ou au crâne pour « personne ».</p>
 
-<p>Sur le guéridon du rideau, un tap sur un jeton-prénom monte la mise de ce joueur d’un
-osselet — jusqu’à trois, ou jusqu’au fond de sa bourse. Au sommet, le tap suivant
-<em>retire tout</em> : la boucle est complète, il n’y a pas de bouton « annuler ». Les
-osselets quittent la bourse <b>immédiatement</b>, avant le tirage. C’est ce qui fait le
-risque, et c’est tout le mécanisme.</p>
+<h2>2 · Le diagnostic — ce n’est pas un pari</h2>
 
-<p>Un joueur sans osselet <b>n’a pas de jeton</b> — un bouton qui ne fait rien n’existe pas.
-Il peut toujours être désigné devineur, le pari verbal restant libre ; il ne touche
-simplement rien.</p>
-
-<p>Sur l’affiche, la rangée <b>QUI AVAIT DEVINÉ ?</b> propose <em>personne</em> puis un jeton
-par joueur. Un tap, et le devineur rafle le pot entier. Un second tap sur le nom retenu
-rouvre la rangée : un mis-tap dans le bruit ne fige pas une accusation. Rien n’est bloquant
-— <em>Nous y sommes</em> fonctionne si personne n’y touche.</p>
-
-<h2>Pourquoi ça coûte quelque chose depuis le 2 août</h2>
-
-<p>La première version ne demandait que « qui avait raison ? » et tenait un score. Le verdict
-de l’auteur a été net : <b>« vraiment gadget — il ne coûte rien et ne rapporte rien. »</b>
-Le même reproche portait sur les défis, et plus largement sur la soirée entière : le jeu
-produisait des actes — paris, défis, aveux, dettes — sans qu’aucun enjeu ne les relie.</p>
-
-<p>Le diagnostic est devenu le principe : <em>le plaisir d’un jeu d’apéro ne vient pas du
-commerce mais du risque, de la malice et de l’affrontement.</em> Un premier design — une
-monnaie qui <b>achèterait des faveurs</b> au crâne — a été proposé et rejeté (« pas super
-fun »). Les osselets ne s’achètent donc rien d’utile : ils se misent, se volent et se
-gagnent.</p>
-
-<h2>Le circuit d’un osselet</h2>
-
-<p>Trois choses à lire. Les osselets <b>naissent</b> d’actes tenus — frappés, pas pris à
-quelqu’un. Ils <b>circulent</b> entre joueurs à somme nulle. Et ils <b>meurent chez le
-crâne</b>, qui n’ouvre à zéro et n’a aucune frappe : chaque osselet qu’il possède a été
-perdu par quelqu’un.</p>
-
+<p>Un pari a besoin de trois choses. Celui-ci en manque <b>trois sur trois</b>.</p>
 
 <div class="schema">
-  <p class="legende">LE CIRCUIT D’UN OSSELET — IL NAÎT D’UN ACTE, IL MEURT CHEZ LE CRÂNE</p>
+  <p class="legende">LES TROIS MANQUES</p>
   <div class="circuit">
-    <div class="etage"><span class="titre">LA FRAPPE — L’ACTE TENU</span><span class="detail">ouverture du livre +2 à chacun · défi tenu +1 · relique +2 · mission tenue +2 · démasquage +2. Rien n’est pris à personne : ces osselets n’existaient pas.</span></div>
-    <div class="entre"><span class="sens">↓</span> la frappe alimente les bourses</div>
-    <div class="etage"><span class="titre">LES BOURSES — UNE PAR JOUEUR</span><span class="detail">Visibles au tapis seulement, en carrés pleins. Jamais sous zéro : ce qu’on ne peut pas payer n’a pas de jeton.</span></div>
-    <div class="entre"><span class="sens">⇄</span> à somme nulle, entre joueurs — le pot du pari · le duel, le perdant paie 1 · l’accusation fausse, 1 à l’accusé</div>
-    <div class="entre"><span class="sens">↓</span> ce qui sort de la table — l’esquive · le rachat d’une sentence · une dette impayée · les trois coups du comptoir (3, 3 et 5)</div>
-    <div class="etage"><span class="titre">LA BOURSE DU CRÂNE — OUVRE À ZÉRO</span><span class="detail">Aucune frappe : chaque osselet qu’il possède a été perdu par quelqu’un. Il encaisse aussi les manquements — défi refusé, mission ratée, « personne » au pari.</span></div>
-  </div>
-  <p class="legende" style="margin-top:16px">À REFERMER — LA MONNAIE DISPARAÎT, LE NOM RESTE</p>
-  <div class="verdict">
-    <div class="issue"><span class="cond">CRÂNE ≥ MEILLEUR JOUEUR</span>Le crâne nomme le livre. « Ce livre appartient au crâne. Vous y figurez. »</div>
-    <div class="issue"><span class="cond">UN JOUEUR DEVANT</span>Il écrit la dédicace — le seul champ de texte libre de l’application. Elle devient le titre sur l’étagère.</div>
-    <div class="issue"><span class="cond">ÉGALITÉ ENTRE JOUEURS</span>Personne ne signe. « Deux mains sur le stylo. Le livre reste sans nom. »</div>
+    <div class="etage"><span class="titre">IL MANQUE UN AVIS</span><span class="detail">On devine un numéro de section. Il est tiré d’une permutation de 1 à 400 mélangée à l’installation (F-23) et n’a aucun rapport avec la ville. Paris compte 3 355 lieux pour 400 numéros — et cent bars dans un rayon où l’on marche cinq minutes. <b>Personne ne peut avoir d’opinion.</b> Deviner « 167 plutôt que 201 » est un tirage à quatre faces.</span></div>
+    <div class="etage"><span class="titre">IL MANQUE UN ARBITRE</span><span class="detail">Le numéro sort, d’accord. Mais c’est <b>la table qui déclare qui avait deviné</b> — un système d’honneur, pas un arbitrage. À quatre verres, la mémoire de qui a dit quoi trente secondes plus tôt est exactement ce sur quoi on ne peut pas compter.</span></div>
+    <div class="etage"><span class="titre">IL MANQUE UNE CONTREPARTIE</span><span class="detail">Le pot est mis par la table et rendu à la table. <b>On ne joue contre rien.</b> Et le crâne — qui a une bourse, qui ouvre à zéro et qui est l’adversaire annoncé du jeu — ne participe pas, sauf par la porte de sortie « personne ».</span></div>
   </div>
 </div>
 
-<p>C’est la tension du comptoir, où le crâne vend trois coups : le pouvoir immédiat se paie
-en <em>position collective</em>. Qui multiplie les coups rapproche le crâne d’écrire le
-livre à la place de la table.</p>
+<p>D’où « mal expliqué » : il n’y a rien à expliquer, parce qu’il n’y a pas de jeu. Le
+mécanisme des osselets, lui, fonctionne — c’est son <em>objet</em> qui est vide.</p>
 
-<h2>Les quatre mécaniques, en une table</h2>
+<h2>3 · Ce qui est réellement plaçable dans Dérive</h2>
 
+<p>Une seule chose, et elle est sous nos yeux : <b>la table ne connaît pas la ville, elle
+connaît ses amis.</b> C’est la seule expertise que quiconque apporte à un barathon. Tout ce
+que le jeu sait vérifier ensuite porte sur des gens — un défi tenu, un duel gagné, une mission
+démasquée — jamais sur des lieux.</p>
+
+<p>Et il y a déjà une contrepartie qui attend : <b>le crâne a une bourse.</b> Qu’il tienne le
+livre résout l’arbitre <em>et</em> la contrepartie d’un coup. Sa bourse ouvre à zéro et
+grossit sur les échecs de la table : les mises sont petites au début, grosses quand le crâne
+mène. L’économie se borne toute seule, sans qu’on écrive un plafond.</p>
+
+<h2>4 · Les cinq pistes</h2>
+
+<section class="option"><span class="rang">PISTE 1 · RECOMMANDÉE</span><h3>Le livre du crâne</h3><div class="champs"><div class="champ"><span class="cle">LE PRINCIPE</span><span class="val">Le crâne tient le livre et <b>couvre l’autre côté à 1:1</b>. On ne parie plus contre ses amis : on parie contre lui. Sa bourse borne la mise — il ne prend que ce qu’il peut payer.</span></div><div class="champ"><span class="cle">LE MOMENT</span><span class="val">Les trois issues <em>déjà binaires et déjà jugées devant tout le monde</em> : le défi (F-145, ~1 étape sur 3), le duel (~1 sur 4), la mission (F-184). Le crâne ouvre son livre sur celle qui tombe : « Mel tiendra-t-il&nbsp;? » — OUI ou NON, 1 à 3 osselets.</span></div><div class="champ"><span class="cle">LA RÈGLE D’INTÉGRITÉ</span><span class="val"><b>L’intéressé ne mise pas.</b> Sans ça il parie « tiendra pas » sur lui-même et échoue exprès. C’est le seul trou du dispositif et il se ferme par cette phrase.</span></div><div class="champ"><span class="cle">CE QUE ÇA DEMANDE</span><span class="val">Presque rien de neuf. Le guéridon, les jetons, le tap qui monte la mise, le grand livre des osselets : inchangés. Ce qui bouge est <em>la question et le moment</em>. Ce qui part : la rangée « QUI AVAIT DEVINÉ&nbsp;? » et les colonnes <em>devin_*</em>.</span></div><div class="champ"><span class="cle">CE QUE ÇA RISQUE</span><span class="val">Un crâne à zéro ne peut rien couvrir, donc pas de pari à la première étape — même exclusion que le duel. Et miser sur quelqu’un peut le pousser à tenir un défi qu’il aurait refusé&nbsp;: le refus doit rester gratuit et sans commentaire (F-145).</span></div></div><p class="verdict-ligne"><b>Pourquoi elle</b> — c’est la seule piste où les trois manques se comblent sans inventer de moment. Et l’enjeu double la scène : quelqu’un qui tient un défi avec de l’argent sur sa tête joue devant un public qui a misé.</p></section><section class="option"><span class="rang">PISTE 2</span><h3>Le pari mutuel</h3><div class="champs"><div class="champ"><span class="cle">LE PRINCIPE</span><span class="val">Pas de maison. Ceux qui ont dit OUI se partagent ce que les NON ont misé. Le crâne ne joue pas.</span></div><div class="champ"><span class="cle">LE MOMENT</span><span class="val">Les mêmes trois issues que la piste 1.</span></div><div class="champ"><span class="cle">CE QUE ÇA DEMANDE</span><span class="val">Une <b>règle de nullité</b> : si tout le monde parie du même côté, il n’y a rien à gagner. Rendre les mises&nbsp;? Le pot au crâne&nbsp;? Chaque réponse est un cas de plus à expliquer à une table qui a bu.</span></div><div class="champ"><span class="cle">CE QUE ÇA RISQUE</span><span class="val">À trois joueurs dont un est l’intéressé, il reste <em>deux</em> parieurs : le pari est nul dès qu’ils sont d’accord, ce qui arrivera la moitié du temps. La mécanique passerait son temps à ne pas avoir lieu.</span></div></div><p class="verdict-ligne"><b>Écartée</b> — plus simple sur le papier, plus fragile à la table. Une petite table produit trop souvent l’unanimité, et le cas dégénéré est le plus fréquent.</p></section><section class="option"><span class="rang">PISTE 3</span><h3>La bravade — l’enchère sur soi</h3><div class="champs"><div class="champ"><span class="cle">LE PRINCIPE</span><span class="val">On inverse le porteur du risque. Celui qui reçoit le défi mise sur <b>lui-même</b> — « je tiens » — et la table couvre. Il gagne s’il tient, la table encaisse s’il se dégonfle.</span></div><div class="champ"><span class="cle">LE MOMENT</span><span class="val">Au moment du défi, pendant que le téléphone est déjà dans ses mains — la passation privée de F-118 existe déjà pour les aveux et les missions.</span></div><div class="champ"><span class="cle">CE QUE ÇA DEMANDE</span><span class="val">Une page privée de plus, et un tour de table pour couvrir. Le §1.4 surveille les passations : c’en est une de plus par pari.</span></div><div class="champ"><span class="cle">CE QUE ÇA RISQUE</span><span class="val">Aucun trou d’intégrité — le miseur veut réussir, c’est tout le charme. Mais la bravade se retourne : miser gros sur soi <em>puis</em> échouer devant la table est humiliant, et la partie n’a pas de mécanisme de consolation.</span></div></div><p class="verdict-ligne"><b>Gardée en réserve</b> — la plus drôle des trois, et la plus coûteuse en passations. Elle se greffe sur la piste 1 plus tard, comme une option du miseur, sans rien défaire.</p></section><section class="option"><span class="rang">PISTE 4</span><h3>Le pari long — une question, toute la soirée</h3><div class="champs"><div class="champ"><span class="cle">LE PRINCIPE</span><span class="val">Un seul pari, posé au setup, scellé, résolu à REFERMER : <b>qui écrira la dédicace&nbsp;?</b> — c’est-à-dire qui finira avec la plus grosse bourse. On parie sur le jeu lui-même.</span></div><div class="champ"><span class="cle">LE MOMENT</span><span class="val">Au vœu, avant la première étape. Un jeton par joueur, plus « le crâne ». La mise est fixe — on n’a que 2 osselets à l’ouverture.</span></div><div class="champ"><span class="cle">CE QUE ÇA DEMANDE</span><span class="val">Un écran au setup, une colonne, et une ligne au colophon. Le verdict est déjà calculé (<em>nightVerdictOf</em>).</span></div><div class="champ"><span class="cle">CE QUE ÇA RISQUE</span><span class="val">Le gain arrive <em>au moment où la monnaie est comptée</em>, donc il n’a plus où servir — le même reproche que le pari sur le procès. Et parier sur soi-même est ici sans danger mais sans saveur : tout le monde se choisit.</span></div></div><p class="verdict-ligne"><b>Complémentaire, pas alternative</b> — elle rend l’économie lisible dès la première étape, ce qui manque aujourd’hui. À reprendre <em>après</em> la piste 1, si le besoin se confirme.</p></section><section class="option"><span class="rang">PISTE 5</span><h3>Rien — retirer le pari</h3><div class="champs"><div class="champ"><span class="cle">LE PRINCIPE</span><span class="val">F-142 s’en va : la rangée du devin, les colonnes, la ligne du colophon, la Devineresse de F-148. Plus rien ne se parie.</span></div><div class="champ"><span class="cle">CE QUI RESTE</span><span class="val">Les osselets, entiers. Le défi, le duel, la mission et le comptoir gardent leurs enjeux — la monnaie ne dépend pas du pari, c’est le pari qui dépendait d’elle.</span></div><div class="champ"><span class="cle">CE QUE ÇA COÛTE</span><span class="val">Le seul enjeu qui existe <em>avant</em> de savoir. Tout le reste des osselets récompense un acte déjà accompli ; le pari est la seule chose qui met quelque chose en jeu sur un futur.</span></div></div><p class="verdict-ligne"><b>L’option nulle, et elle est honnête</b> — mieux vaut pas de pari qu’un pari qu’on n’explique pas. À prendre si aucune des quatre ne convainc : on rouvrira la question sans code mort en attendant.</p></section>
+
+<h2>5 · La comparaison</h2>
+
+
+<div class="matrice">
 <table>
-<tr><th>Mécanique</th><th>Où</th><th>Ce que ça met en jeu</th></tr>
-<tr><td><b>La mise</b></td><td>le rideau, chaque étape</td>
-    <td>1 à 3 osselets → le pot, au devineur ou au crâne</td></tr>
-<tr><td><b>Le duel</b></td><td>le registre, ~1 étape sur 4</td>
-    <td>deux joueurs, un terrain. Le perdant paie 1. L’esquive coûte 1 au crâne, des deux.</td></tr>
-<tr><td><b>La mission</b></td><td>en privé, pendant un aveu</td>
-    <td>tenue +2 · démasquée +2 à l’accusateur · ratée +2 au crâne. Accuser à faux coûte 1.</td></tr>
-<tr><td><b>Le comptoir</b></td><td>le tapis</td>
-    <td>duel commandé 3 · racket 3 · corruption 5 — au crâne, toujours</td></tr>
+<tr>
+  <th>Piste</th><th>Un avis&nbsp;?</th><th>Un arbitre&nbsp;?</th><th>Une contrepartie&nbsp;?</th>
+  <th>Ce que ça coûte</th>
+</tr>
+<tr>
+  <td><b>0 · l’existant</b></td>
+  <td class="non">✗ un numéro tiré</td>
+  <td class="non">✗ la table s’auto-déclare</td>
+  <td class="non">✗ personne</td>
+  <td class="note-cell">rien — c’est le problème</td>
+</tr>
+<tr>
+  <td><b>1 · le livre du crâne</b></td>
+  <td class="oui">✓ on connaît ses amis</td>
+  <td class="oui">✓ jugé à voix haute</td>
+  <td class="oui">✓ le crâne, à 1:1</td>
+  <td class="note-cell">un moment, une question — 2 à 4 paris</td>
+</tr>
+<tr>
+  <td><b>2 · le pari mutuel</b></td>
+  <td class="oui">✓ idem</td>
+  <td class="oui">✓ idem</td>
+  <td class="non">△ les autres, s’il y en a en face</td>
+  <td class="note-cell">une règle de nullité — 2 à 4 paris</td>
+</tr>
+<tr>
+  <td><b>3 · la bravade</b></td>
+  <td class="oui">✓ on se connaît soi</td>
+  <td class="oui">✓ idem</td>
+  <td class="oui">✓ la table couvre</td>
+  <td class="note-cell">une passation de plus — 2 à 4 paris</td>
+</tr>
+<tr>
+  <td><b>4 · le pari long</b></td>
+  <td class="oui">✓ on juge la table</td>
+  <td class="oui">✓ le grand livre compte</td>
+  <td class="oui">✓ le crâne</td>
+  <td class="note-cell">un écran au setup — 1 pari</td>
+</tr>
+<tr>
+  <td><b>5 · rien</b></td>
+  <td class="note-cell">—</td><td class="note-cell">—</td><td class="note-cell">—</td>
+  <td class="note-cell">une suppression — aucun pari</td>
+</tr>
 </table>
+</div>
 
-<h2>Ce que la monnaie ne touche jamais</h2>
+<h2>6 · Ce qu’il reste à décider</h2>
 
-<p>Aucun osselet ne s’obtient ni ne se perd pour <b>un verre</b>, une photo ou une obligation
-sociale. C’est l’exigence F-64 et elle tient intégralement : le minimum d’un verre par
-joueur est une condition de validation, jamais un objectif, et rien dans l’application ne
-met en avant un total. Les corpus de missions et de duels sont validés contre ça — tout ce
-qui pousserait au volume ou à la vitesse est refusé.</p>
-
-<p>Un compte d’osselets n’est pas non plus une barre de progression. Il ne se lit qu’au
-tapis, et la porte qui y mène n’affiche qu’un seul chiffre : <em>la bourse du crâne</em>.
-La menace, pas le classement.</p>
-
-<h2>Ce qui reste à trancher</h2>
-
-<p>L’objet du pari est remis en cause depuis le 4 août, et le motif est le même qui
-condamnait la première version — appliqué une fois de plus. <b>On devine un numéro de
-section.</b> Or un numéro est arbitraire par construction : il est tiré d’une permutation
-de 1 à 400 mélangée à l’installation, et n’a aucun rapport avec la ville ni avec la
-distance. Deviner « 167 plutôt que 201 » n’est pas un pari, c’est un tirage à quatre faces
-— et le crâne annonçait compter les points d’un jeu où il n’y a rien à savoir.</p>
-
-<p>L’invitation à parier a donc été retirée de l’écran de section. Deux issues restent
-ouvertes, et c’est une décision d’auteur :</p>
+<p>La piste 1 est celle que je recommande, et la décision n’est pas seulement « laquelle » :
+trois choses restent ouvertes quelle que soit la piste retenue.</p>
 
 <div class="note">
-<p><b>Retirer</b> — la rangée du devin, les colonnes, la ligne du colophon, le surnom de la
-Devineresse. La mise disparaîtrait avec, et avec elle le seul enjeu qui existe avant de
-savoir.</p>
-<p><b>Changer d’objet</b> — la catégorie du lieu, la distance à pied, ce que le groupe
-trouvera sur place : ça se devine, et ça se vérifie à l’arrivée. Le mécanisme de la mise
-ne dépend pas de la réponse, donc cette issue garde tout et ne réécrit qu’une question.</p>
+<p><b>Sur combien de sujets&nbsp;?</b> Le défi seul donne un à deux paris par soirée ; les trois
+sujets en donnent deux à quatre. Commencer par le défi seul coûte moins à défaire si ça tombe
+à plat.</p>
+<p><b>Que devient la Devineresse&nbsp;?</b> Le surnom de F-148 se nourrit du score du devin.
+Il change de base — « le Parieur », qui a gagné le plus contre le crâne — ou il disparaît.</p>
+<p><b>Le refus reste-t-il gratuit&nbsp;?</b> F-145 dit qu’un défi se refuse d’une réplique et
+que ça ne coûte rien. Des osselets misés sur sa tête mettent une pression que l’exigence
+n’avait pas prévue. Je propose de ne rien y toucher : le refus reste gratuit, la table perd sa
+mise, et c’est tout.</p>
 </div>
 
 <footer>
-Dérive — note de mécanique. Le jeu, son code et son cahier des charges restent privés.<br>
-Cette page est générée par <em>docs/build-paris.py</em> : ne l’éditez pas à la main.
+Dérive — spike produit. Aucune décision prise, aucun code écrit. Le jeu, son code et son
+cahier des charges restent privés.<br>
+Cette page est générée par <em>docs/build-paris.py</em> : ne l’éditez pas à la main.
 </footer>
 </main>
 </body>
