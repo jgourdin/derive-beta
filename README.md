@@ -5,14 +5,14 @@ le parcours de Dérive, écran par écran, donné à relire à quelques personne
 qui savent regarder une interface.
 
 → **[Ouvrir le dossier](https://jgourdin.github.io/derive-beta/)**
-→ **[Le pari — spike produit](https://jgourdin.github.io/derive-beta/paris.html)** — cinq pistes, une décision à prendre
+→ **[Le pari — spike produit](https://jgourdin.github.io/derive-beta/paris.html)** — cinq pistes. **Tranché le 5 août** : aucune des cinq. Le jeton a changé de nature — on ne parie plus sur un numéro de section, on pose une **obole** qui lance une partie. La note reste pour son diagnostic.
 
 ## Ce qu’il y a dedans
 
 | | |
 |---|---|
 | `index.html` | le dossier, autonome — fonte, captures et kit sont dedans. Il s’ouvre aussi hors ligne, en double-cliquant. |
-| `paris.html` | un **spike produit** sur le pari. Celui qui existe ne marche pas — on y devine un numéro de section tiré au sort, et c’est la table elle-même qui déclare qui avait gagné. La note fait le diagnostic, puis pose **cinq pistes** avec ce que chacune demande et ce qu’elle risque. Rien n’est implémenté : c’est un document de décision. Autonome comme le dossier. |
+| `paris.html` | un **spike produit** sur le pari, **conservé pour son diagnostic** — la décision a été prise le 5 août et n'est aucune des cinq pistes. Celui qui existe ne marche pas — on y devine un numéro de section tiré au sort, et c’est la table elle-même qui déclare qui avait gagné. La note fait le diagnostic, puis pose **cinq pistes** avec ce que chacune demande et ce qu’elle risque. Rien n’est implémenté : c’est un document de décision. Autonome comme le dossier. |
 | `parcours/` | les 70 captures en taille réelle (1080 × 2164), prises sur appareil les 2 et 4 août 2026, dans l’ordre du parcours. Le dossier n’en montre pas la totalité : quelques-unes sont des états voisins qu’il n’a pas retenus. |
 
 ## Ce qu’est Dérive
